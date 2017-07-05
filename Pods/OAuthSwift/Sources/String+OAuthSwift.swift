@@ -85,7 +85,7 @@ extension String.Encoding {
     
     var charset: String {
         let charset = CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(self.rawValue))
-        return charset as! String
+        return charset! as String
     }
 
 }
