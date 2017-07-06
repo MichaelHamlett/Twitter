@@ -78,14 +78,35 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func did(post: Tweet) {
-        "Tweet posted"
+        print("Tweet posted")
     }
     
   
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ComposeViewController
-        vc.delegate = self
-     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TweetDetailSegue" {
+            let cell = sender as! UITableViewCell
+            
+            if let indexPath = tableView.indexPath(for: cell){
+                let post = tweets[indexPath.row]
+                let tweetDetailViewController = segue.destination as! TweetDetailViewController
+                tweetDetailViewController.tweet = post
+            }
+        }
+        else if (segue.identifier == "ComposeViewSegue") {
+            let vc = segue.destination as! ComposeViewController
+            vc.delegate = self
+        }
+        else if (segue.identifier == "replySegue") {
+            let cell = sender as! UITableViewCell
+            
+            if let indexPath = tableView.indexPath(for: cell){
+                let post = tweets[indexPath.row]
+                let vc = segue.destination as! ComposeViewController
+                vc.replyTweet = post
+                vc.replying = true
+                vc.delegate = self
+            }
+        }
+    }
     
 }

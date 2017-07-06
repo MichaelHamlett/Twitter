@@ -14,6 +14,9 @@ protocol ComposeViewControllerDelegate {
 
 class ComposeViewController: UIViewController, UITextViewDelegate {
     
+    var replying = false
+    var replyTweet: Tweet?
+    
     var delegate : ComposeViewControllerDelegate?
     
     @IBOutlet weak var textView: UITextView!
@@ -62,17 +65,30 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func tweetButtonPressed(_ sender: Any) {
-        APIManager.shared.composeTweet(with: textView.text) { (tweet: Tweet?, error: Error?) in
-            if let error = error {
-                print("Error composing Tweet: \(error.localizedDescription)")
-            } else if let tweet = tweet {
-                self.delegate?.did(post: tweet)
-                print("Compose Tweet Success!")
+        if replying {
+            APIManager.shared.replyToTweet(replyingTo: replyTweet!, with: textView.text, completion: { (tweet: Tweet?, error: Error?) in
+                if let error = error {
+                    print("Error composing Tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    self.delegate?.did(post: tweet)
+                    print("Compose Tweet Success!")
+                }
+            })
+            replying = false
+        }
+         else {
+            APIManager.shared.composeTweet(with: textView.text) { (tweet: Tweet?, error: Error?) in
+                if let error = error {
+                    print("Error composing Tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    self.delegate?.did(post: tweet)
+                    print("Compose Tweet Success!")
+                }
             }
         }
         dismiss(animated: true, completion: nil)
-        
     }
+    
     
     
     /*

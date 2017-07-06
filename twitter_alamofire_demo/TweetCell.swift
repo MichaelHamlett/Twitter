@@ -13,7 +13,7 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var screenNameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
@@ -85,8 +85,8 @@ class TweetCell: UITableViewCell {
     var tweet: Tweet! {
         didSet {
             tweetTextLabel.text = tweet.text
-            screenNameLabel.text = tweet.user.screenName
-            usernameLabel.text = "@\(tweet.user.name)"
+            nameLabel.text = tweet.user.name
+            usernameLabel.text = "@\(tweet.user.screenName)"
             dateLabel.text = tweet.createdAtString
             retweetCountLabel.text = String(tweet.retweetCount)
             favoriteCountLabel.text = String(tweet.favoriteCount)
