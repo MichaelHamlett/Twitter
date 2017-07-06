@@ -20,6 +20,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var rtOutlet: UIButton!
     @IBOutlet weak var favOutlet: UIButton!
+    @IBOutlet weak var replyOutlet: UIButton!
+    
+    
     
     @IBAction func retweetPressed(_ sender: Any) {
         if !rtOutlet.isSelected{

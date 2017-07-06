@@ -59,6 +59,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         
         cell.tweet = tweets[indexPath.row]
+        //allows us to get the indexpath.row for the replybutton
+        cell.replyOutlet.tag = indexPath.row
         
         return cell
     }
@@ -97,16 +99,21 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             vc.delegate = self
         }
         else if (segue.identifier == "replySegue") {
-            let cell = sender as! UITableViewCell
+            let button = sender as! UIButton
             
-            if let indexPath = tableView.indexPath(for: cell){
-                let post = tweets[indexPath.row]
-                let vc = segue.destination as! ComposeViewController
-                vc.replyTweet = post
-                vc.replying = true
-                vc.delegate = self
-            }
+            //indexpath of button set in tableview cellForRowAt
+            let indexPath = button.tag
+            let post = tweets[indexPath]
+            let vc = segue.destination as! ComposeViewController
+            vc.replyTweet = post
+            vc.replying = true
+            vc.delegate = self
+            
         }
     }
+    
+    
+    
+    
     
 }
