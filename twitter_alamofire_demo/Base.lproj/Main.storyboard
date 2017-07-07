@@ -202,7 +202,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="4MD-5J-itY" id="qPH-9M-a4w"/>
                                             <outlet property="favOutlet" destination="DWh-ud-RxD" id="X2Y-TS-MQz"/>
                                             <outlet property="favoriteCountLabel" destination="kqc-Hg-VNG" id="6Sh-ds-nwr"/>
                                             <outlet property="nameLabel" destination="hBR-ET-t9v" id="db2-Vn-LUL"/>
@@ -210,6 +209,7 @@
                                             <outlet property="replyOutlet" destination="c6r-zZ-sZF" id="wDg-oP-aIW"/>
                                             <outlet property="retweetCountLabel" destination="hvk-5S-p2I" id="YCB-Qx-nfs"/>
                                             <outlet property="rtOutlet" destination="8lV-5d-lxh" id="3xE-zf-uw1"/>
+                                            <outlet property="timeAgoLabel" destination="4MD-5J-itY" id="ctb-Ay-JTA"/>
                                             <outlet property="tweetTextLabel" destination="epC-Fs-Q5Z" id="ZLP-IG-Wsf"/>
                                             <outlet property="usernameLabel" destination="glH-yp-dVX" id="Iz1-wM-O3O"/>
                                             <segue destination="gwq-1u-f6Y" kind="show" identifier="TweetDetailSegue" id="lry-fN-o2V"/>
@@ -498,7 +498,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateLabel" destination="GjE-As-GJ9" id="pIm-KE-xWs"/>
                                             <outlet property="favOutlet" destination="oE7-Kl-HZQ" id="Y4U-YT-z9o"/>
                                             <outlet property="favoriteCountLabel" destination="l7p-bp-G4y" id="RK0-gt-m9I"/>
                                             <outlet property="nameLabel" destination="R84-Gu-j5p" id="JfJ-Zy-7Co"/>
@@ -506,6 +505,7 @@
                                             <outlet property="replyOutlet" destination="gxH-75-Mc5" id="WhD-OK-61d"/>
                                             <outlet property="retweetCountLabel" destination="cnM-fs-f2Y" id="PK1-9C-0j2"/>
                                             <outlet property="rtOutlet" destination="gAZ-v4-7T0" id="aIl-M5-c6t"/>
+                                            <outlet property="timeAgoLabel" destination="GjE-As-GJ9" id="80P-yr-HIV"/>
                                             <outlet property="tweetTextLabel" destination="CFz-E1-l1P" id="uNj-Te-HYk"/>
                                             <outlet property="usernameLabel" destination="Pb5-0E-n3K" id="Sh6-GS-uag"/>
                                             <segue destination="gwq-1u-f6Y" kind="show" identifier="TweetDetailSegue" id="uE0-oK-SjD"/>

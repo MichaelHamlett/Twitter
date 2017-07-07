@@ -8,14 +8,16 @@
 
 import UIKit
 
-class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeViewControllerDelegate, UIScrollViewDelegate {
     
     var tweets: [Tweet] = []
+    var isMoreDataLoading = false
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
@@ -27,10 +29,29 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
         
+        loadData()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !isMoreDataLoading {
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging && APIManager.shared.homeTimelineCount < 101) {
+                isMoreDataLoading = true
+                APIManager.shared.homeTimelineCount += 5
+                loadData()
+                
+            }
+        }
+    }
+    
+    func loadData() {
         APIManager.shared.getHomeTimeLine { (tweets, error) in
             if let tweets = tweets {
                 self.tweets = tweets
                 self.tableView.reloadData()
+                self.isMoreDataLoading = false
             } else if let error = error {
                 print("Error getting home timeline: " + error.localizedDescription)
             }
@@ -38,17 +59,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func refreshControlAction(_ refreshControl: UIRefreshControl) {
-        
-        APIManager.shared.getHomeTimeLine { (tweets, error) in
-            if let tweets = tweets {
-                self.tweets = tweets
-                self.tableView.reloadData()
-                refreshControl.endRefreshing()
-            } else if let error = error {
-                print("Error getting home timeline: " + error.localizedDescription)
-            }
-        }
-
+        loadData()
+        refreshControl.endRefreshing()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

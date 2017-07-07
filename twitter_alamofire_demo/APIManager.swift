@@ -24,6 +24,8 @@ class APIManager: SessionManager {
     
     static let callbackURLString = "alamoTwitter://"
     
+    var homeTimelineCount = 10
+    
     // MARK: Twitter API methods
     func login(success: @escaping () -> (), failure: @escaping (Error?) -> ()) {
         
@@ -91,7 +93,10 @@ class APIManager: SessionManager {
             
         }
         
-        request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
+        print(homeTimelineCount)
+        let parameters = ["count" : homeTimelineCount]
+        request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get, parameters: parameters, encoding: URLEncoding.queryString)
+        //request(URL(string: "https://api.twitter.com/1.1/statuses/home_timeline.json")!, method: .get)
             .validate()
             .responseJSON { (response) in
                 guard response.result.isSuccess else {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TTTAttributedLabel
 
 class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
@@ -27,9 +28,10 @@ class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        
         if let tweet = tweet {
-            let tweetContent = tweet.text 
+            let tweetContent = tweet.text
             let username = "@\(tweet.user.screenName)"
             let name = tweet.user.name
             let date = tweet.createdAtString 

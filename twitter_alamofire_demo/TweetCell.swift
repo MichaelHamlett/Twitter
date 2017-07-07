@@ -9,6 +9,8 @@
 import UIKit
 import AlamofireImage
 import DateToolsSwift
+import TTTAttributedLabel
+
 
 class TweetCell: UITableViewCell {
     
@@ -16,7 +18,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeAgoLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var rtOutlet: UIButton!
@@ -91,7 +93,7 @@ class TweetCell: UITableViewCell {
             tweetTextLabel.text = tweet.text
             nameLabel.text = tweet.user.name
             usernameLabel.text = "@\(tweet.user.screenName)"
-            dateLabel.text = tweet.createdAtString
+            timeAgoLabel.text = tweet.createdAtString
             retweetCountLabel.text = String(tweet.retweetCount)
             favoriteCountLabel.text = String(tweet.favoriteCount)
             profileImageView.af_setImage(withURL: tweet.user.profileImageURL)
