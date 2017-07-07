@@ -1,20 +1,18 @@
 //
-//  ProfileViewController.swift
+//  OtherUserViewController.swift
 //  twitter_alamofire_demo
 //
-//  Created by Michael Hamlett on 7/6/17.
+//  Created by Michael Hamlett on 7/7/17.
 //  Copyright © 2017 Charles Hieger. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-   
+class OtherUserViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var header: UIView!
+    
     @IBOutlet weak var bannerImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,19 +22,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var followersCountLabel: UILabel!
     
     var tweets: [Tweet] = []
-    let user = User.current
-    
+    var user : User?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.estimatedSectionHeaderHeight = 40
-        //self.automaticallyAdjustsScrollViewInsets = false
-        tableView.tableHeaderView = header
+        //tableView.tableHeaderView = header
         
-        
-        APIManager.shared.userTimeline(user: User.current!) { (tweets: [Tweet]?, error: Error?) in
+        APIManager.shared.userTimeline(user: user!) { (tweets: [Tweet]?, error: Error?) in
             if let tweets = tweets {
                 self.tweets = tweets
                 self.tableView.reloadData()
@@ -59,30 +54,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             followersCountLabel.text = "\(user.followersCount)"
         }
         
-        
-        
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let view = UIView()
-//        view.backgroundColor = UIColor.white
-//        let segmentedControl = UISegmentedControl(frame: CGRect(x: 10, y: 5, width: tableView.frame.width - 20, height: 30))
-//        segmentedControl.insertSegment(withTitle: "Tweets", at: 0, animated: false)
-//        segmentedControl.insertSegment(withTitle: "Media", at: 1, animated: false)
-//        segmentedControl.insertSegment(withTitle: "Favorites", at: 2, animated: false)
-//        view.addSubview(segmentedControl)
-//        return view
-//    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,25 +67,23 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.tweet = tweets[indexPath.row]
         //allows us to get the indexpath.row for the replybutton
         cell.replyOutlet.tag = indexPath.row
-        
+        cell.profileButtonOutlet.tag = indexPath.row
         return cell
-        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tweets.count
     }
     
 
-   
+    /*
+    // MARK: - Navigation
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "TweetDetailSegue" {
-            let cell = sender as! UITableViewCell
-            
-            if let indexPath = tableView.indexPath(for: cell){
-                let post = tweets[indexPath.row]
-                let tweetDetailViewController = segue.destination as! TweetDetailViewController
-                tweetDetailViewController.tweet = post
-            }
-        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
 }

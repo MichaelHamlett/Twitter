@@ -73,6 +73,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         cell.tweet = tweets[indexPath.row]
         //allows us to get the indexpath.row for the replybutton
         cell.replyOutlet.tag = indexPath.row
+        cell.profileButtonOutlet.tag = indexPath.row
         
         return cell
     }
@@ -121,6 +122,15 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             vc.replying = true
             vc.delegate = self
             
+        }
+        else if (segue.identifier == "otherUser") {
+            let button = sender as! UIButton
+            
+            let indexPath = button.tag
+            let post = tweets[indexPath]
+            let user = post.user
+            let vc = segue.destination as! OtherUserViewController
+            vc.user = user
         }
     }
     

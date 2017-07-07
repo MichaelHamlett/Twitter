@@ -24,7 +24,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var rtOutlet: UIButton!
     @IBOutlet weak var favOutlet: UIButton!
     @IBOutlet weak var replyOutlet: UIButton!
-    
+    @IBOutlet weak var profileButtonOutlet: UIButton!
     
     
     @IBAction func retweetPressed(_ sender: Any) {

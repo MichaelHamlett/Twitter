@@ -34,7 +34,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
         textView.text = "What's happening?"
         textView.textColor = UIColor.lightGray
-        self.textView.becomeFirstResponder()
+        //self.textView.becomeFirstResponder()
         
         let user = User.current
         let url = user?.profileImageURL
