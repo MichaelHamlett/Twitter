@@ -207,6 +207,46 @@ class APIManager: SessionManager {
     
     // MARK: TODO: Get User Timeline
     
+    func userTimeline(user: User, completion: @escaping ([Tweet]?, Error?) -> ()) {
+        
+//        //This uses tweets from disk to avoid hitting rate limit. Comment out if you want fresh
+//        //tweets
+//        if let data = UserDefaults.standard.object(forKey: "usertimeline_tweets") as? Data {
+//            let tweetDictionaries = NSKeyedUnarchiver.unarchiveObject(with: data) as! [[String: Any]]
+//            let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
+//                Tweet(dictionary: dictionary)
+//            })
+//            
+//            completion(tweets, nil)
+//            
+//        }
+        let userID = user.userID
+        request(URL(string: "https://api.twitter.com/1.1/statuses/user_timeline.json?user_id=\(userID)")!, method: .get)
+            .validate()
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    completion(nil, response.result.error)
+                    return
+                }
+                guard let tweetDictionaries = response.result.value as? [[String: Any]] else {
+                    print("Failed to parse tweets")
+                    let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : "Failed to parse tweets"])
+                    completion(nil, error)
+                    return
+                }
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: tweetDictionaries)
+                UserDefaults.standard.set(data, forKey: "usertimeline_tweets")
+                UserDefaults.standard.synchronize()
+                
+                let tweets = tweetDictionaries.flatMap({ (dictionary) -> Tweet in
+                    Tweet(dictionary: dictionary)
+                })
+                completion(tweets, nil)
+        }
+    }
+    
+    
     
     //--------------------------------------------------------------------------------//
     

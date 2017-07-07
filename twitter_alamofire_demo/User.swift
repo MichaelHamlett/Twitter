@@ -16,8 +16,14 @@ class User {
     var profileImageURLString : String
     var profileImageURL: URL
     var dictionary : [String: Any?]
+    var userID : String
+    var followersCount: Int
+    var followingCount: Int
+    var profileBackgroundURLString: String
+    var bio : String
     
     private static var _current : User?
+    
     static var current: User?{
         get {
             if _current == nil {
@@ -48,7 +54,12 @@ class User {
         name = dictionary["name"] as! String
         screenName = dictionary["screen_name"] as! String
         profileImageURLString = dictionary["profile_image_url"] as! String
+        profileImageURLString = profileImageURLString.replacingOccurrences(of: "_normal.jpg", with: ".jpg", options: .literal, range: nil)
         profileImageURL = URL(string: profileImageURLString)!
-        
+        userID = dictionary["id_str"] as! String
+        followersCount = dictionary["followers_count"] as! Int
+        followingCount = dictionary["friends_count"] as! Int
+        profileBackgroundURLString = dictionary["profile_banner_url"] as? String ?? ""
+        bio = dictionary["description"] as! String
     }
 }
