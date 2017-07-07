@@ -342,6 +342,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-0H-hO5">
+                                            <rect key="frame" x="4" y="289" width="367" height="2"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="bXR-js-2E6"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -352,13 +359,16 @@
                                         <constraint firstItem="Z3a-P7-XaH" firstAttribute="centerY" secondItem="l7j-lh-Ehi" secondAttribute="centerY" id="K5e-T9-O6r"/>
                                         <constraint firstItem="DdA-sF-Vj5" firstAttribute="leading" secondItem="Lfk-Rd-x6T" secondAttribute="leading" id="Kva-au-aCC"/>
                                         <constraint firstItem="nHO-2t-Z8m" firstAttribute="centerY" secondItem="l7j-lh-Ehi" secondAttribute="centerY" id="McH-3O-BnN"/>
+                                        <constraint firstItem="HWP-0H-hO5" firstAttribute="leading" secondItem="chy-oT-6tN" secondAttribute="leading" constant="4" id="NGt-co-pfy"/>
                                         <constraint firstItem="2QZ-2r-x5y" firstAttribute="top" secondItem="DdA-sF-Vj5" secondAttribute="bottom" id="OgE-qs-TOu"/>
                                         <constraint firstItem="uje-Qu-16o" firstAttribute="bottom" secondItem="Mud-v6-h5e" secondAttribute="bottom" constant="40" id="QR1-Hk-kgH"/>
                                         <constraint firstItem="Lfk-Rd-x6T" firstAttribute="leading" secondItem="chy-oT-6tN" secondAttribute="leading" constant="3" id="RNu-tn-t7l"/>
                                         <constraint firstItem="Z3a-P7-XaH" firstAttribute="leading" secondItem="nHO-2t-Z8m" secondAttribute="trailing" constant="6" id="UJ7-xX-3ZY"/>
+                                        <constraint firstItem="HWP-0H-hO5" firstAttribute="top" secondItem="nHO-2t-Z8m" secondAttribute="bottom" constant="8" id="VZ1-sF-ce2"/>
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="l7j-lh-Ehi" secondAttribute="bottom" constant="4" id="WLf-2Q-AhJ"/>
                                         <constraint firstItem="lfT-69-EYD" firstAttribute="leading" secondItem="Lfk-Rd-x6T" secondAttribute="leading" id="Zly-5y-Kxk"/>
                                         <constraint firstItem="Mud-v6-h5e" firstAttribute="leading" secondItem="chy-oT-6tN" secondAttribute="leading" id="aad-Se-A1t"/>
+                                        <constraint firstAttribute="trailing" secondItem="HWP-0H-hO5" secondAttribute="trailing" constant="4" id="bhR-Ql-CLh"/>
                                         <constraint firstAttribute="trailing" secondItem="lfT-69-EYD" secondAttribute="trailing" constant="3" id="dM6-L2-T4O"/>
                                         <constraint firstAttribute="trailing" secondItem="Mud-v6-h5e" secondAttribute="trailing" id="e5w-Kc-QOg"/>
                                         <constraint firstItem="lfT-69-EYD" firstAttribute="top" secondItem="2QZ-2r-x5y" secondAttribute="bottom" id="jt5-Dv-wkC"/>
@@ -821,6 +831,7 @@
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="rKQ-Sb-GRJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="2DC-gi-26u">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

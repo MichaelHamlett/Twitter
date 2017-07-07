@@ -23,10 +23,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var keyboardToolbar: UIToolbar!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var characterLabel: UILabel!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         textView.delegate = self
         
@@ -62,6 +64,14 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
             textView.text = "What's happening?"
             textView.textColor = UIColor.lightGray
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.characters.count
+        characterLabel.text = String(140 - numberOfChars)
+        return numberOfChars < 140
+        
     }
     
     @IBAction func tweetButtonPressed(_ sender: Any) {
