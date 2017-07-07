@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DateToolsSwift
 
 class Tweet {
     
@@ -41,8 +42,10 @@ class Tweet {
         // Configure output format
         formatter.dateStyle = .short
         formatter.timeStyle = .none
+        let timeSince = date.shortTimeAgoSinceNow
         // Convert Date to String
-        createdAtString = formatter.string(from: date)
+        createdAtString = timeSince
+        //createdAtString = formatter.string(from: date)
         
         
     }
