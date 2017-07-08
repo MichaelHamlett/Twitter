@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import ActiveLabel
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     

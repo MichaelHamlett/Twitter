@@ -10,11 +10,12 @@ import UIKit
 import AlamofireImage
 import DateToolsSwift
 import TTTAttributedLabel
+import ActiveLabel
 
 
 class TweetCell: UITableViewCell {
     
-    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: ActiveLabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -90,6 +91,7 @@ class TweetCell: UITableViewCell {
     
     var tweet: Tweet! {
         didSet {
+            tweetTextLabel.handleURLTap { url in UIApplication.shared.canOpenURL(url) }
             tweetTextLabel.text = tweet.text
             nameLabel.text = tweet.user.name
             usernameLabel.text = "@\(tweet.user.screenName)"

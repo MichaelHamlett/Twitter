@@ -8,13 +8,14 @@
 
 import UIKit
 import TTTAttributedLabel
+import ActiveLabel
 
 class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
    
     @IBOutlet weak var screenNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var tweetLabel: ActiveLabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
@@ -41,6 +42,7 @@ class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate
             let profileImageURL = tweet.user.profileImageURL
             profileImageView.af_setImage(withURL: profileImageURL)
             tweetLabel.text = tweetContent
+            tweetLabel.handleURLTap { url in UIApplication.shared.openURL(url) }
             screenNameLabel.text = username
             nameLabel.text = name
             dateLabel.text = date
@@ -53,6 +55,8 @@ class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate
         
         
     }
+    
+    
 
 
         // Do any additional setup after loading the view.

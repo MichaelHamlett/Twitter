@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ActiveLabel
 
 class OtherUserViewController: UIViewController,UITableViewDataSource, UITableViewDelegate{
 

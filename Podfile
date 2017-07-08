@@ -15,6 +15,10 @@ target 'twitter_alamofire_demo' do
   pod 'RSKPlaceholderTextView'
   pod 'DateToolsSwift'
   pod 'TTTAttributedLabel'
+  
+  use_frameworks!
+  
+  pod 'ActiveLabel'
 
   target 'twitter_alamofire_demoTests' do
     inherit! :search_paths

@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (0.7.1)
   - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
@@ -18,6 +19,7 @@ PODS:
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Alamofire (~> 4.4)
   - AlamofireImage (~> 3.1)
   - DateToolsSwift
@@ -29,6 +31,7 @@ DEPENDENCIES:
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
+  ActiveLabel: 68625f22775f51c31bb691ca8de20f1e5a3bc825
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   RSKPlaceholderTextView: 301f0f30e70e7c42fe4e941e3a08365ab0d890d5
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: aa2088cea22ed1c4d503ecfa6af2510a53d3feb0
+PODFILE CHECKSUM: dc93976406a18f36f11a550c4821d9357f4f9024
 
 COCOAPODS: 1.2.1
