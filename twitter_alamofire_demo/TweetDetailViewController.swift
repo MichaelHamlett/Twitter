@@ -19,6 +19,7 @@ class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
+    @IBOutlet weak var profileButtonOutlet: UIButton!
    
     @IBOutlet weak var rtOutlet: UIButton!
     @IBOutlet weak var favOutlet: UIButton!
@@ -138,6 +139,13 @@ class TweetDetailViewController: UIViewController, ComposeViewControllerDelegate
             vc.replying = true
             vc.replyTweet = tweet
             vc.delegate = self
+        }
+        else if (segue.identifier == "otherUser") {
+            
+            let post = tweet
+            let user = post?.user
+            let vc = segue.destination as! OtherUserViewController
+            vc.user = user
         }
     }
    
