@@ -265,9 +265,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MpR-Jo-Taw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MpR-Jo-Taw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="chy-oT-6tN">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
@@ -338,9 +337,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5L-kF-H6E">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5L-kF-H6E">
                                             <rect key="frame" x="293" y="119" width="74" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Edit profile"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3a-P7-XaH">
@@ -382,6 +380,8 @@
                                         <constraint firstItem="lfT-69-EYD" firstAttribute="leading" secondItem="Lfk-Rd-x6T" secondAttribute="leading" id="Zly-5y-Kxk"/>
                                         <constraint firstItem="Mud-v6-h5e" firstAttribute="leading" secondItem="chy-oT-6tN" secondAttribute="leading" id="aad-Se-A1t"/>
                                         <constraint firstAttribute="trailing" secondItem="HWP-0H-hO5" secondAttribute="trailing" constant="4" id="bhR-Ql-CLh"/>
+                                        <constraint firstAttribute="trailing" secondItem="c5L-kF-H6E" secondAttribute="trailing" constant="8" id="cA9-c7-pnd"/>
+                                        <constraint firstItem="c5L-kF-H6E" firstAttribute="top" secondItem="Mud-v6-h5e" secondAttribute="bottom" constant="1" id="chP-AH-2mX"/>
                                         <constraint firstAttribute="trailing" secondItem="lfT-69-EYD" secondAttribute="trailing" constant="3" id="dM6-L2-T4O"/>
                                         <constraint firstAttribute="trailing" secondItem="Mud-v6-h5e" secondAttribute="trailing" id="e5w-Kc-QOg"/>
                                         <constraint firstItem="lfT-69-EYD" firstAttribute="top" secondItem="2QZ-2r-x5y" secondAttribute="bottom" id="jt5-Dv-wkC"/>
@@ -538,6 +538,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MpR-Jo-Taw" secondAttribute="bottom" id="2Bz-MX-ere"/>
+                            <constraint firstItem="MpR-Jo-Taw" firstAttribute="leading" secondItem="zK8-lA-WuB" secondAttribute="leading" id="L4S-zb-vzX"/>
+                            <constraint firstAttribute="trailing" secondItem="MpR-Jo-Taw" secondAttribute="trailing" id="RCr-R4-PGs"/>
+                            <constraint firstItem="MpR-Jo-Taw" firstAttribute="top" secondItem="zK8-lA-WuB" secondAttribute="top" id="xdx-ka-B8c"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="e7g-Ii-uWu"/>
                     <connections>
@@ -769,9 +775,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-XO-NGm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-XO-NGm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="1a3-Qh-y0m">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
@@ -1046,6 +1051,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6a6-XO-NGm" firstAttribute="top" secondItem="u0w-zO-iVR" secondAttribute="top" id="Ivt-tv-UOB"/>
+                            <constraint firstItem="6a6-XO-NGm" firstAttribute="leading" secondItem="u0w-zO-iVR" secondAttribute="leading" id="aVf-Oc-wMU"/>
+                            <constraint firstAttribute="trailing" secondItem="6a6-XO-NGm" secondAttribute="trailing" id="gmj-D7-mpJ"/>
+                            <constraint firstAttribute="bottom" secondItem="6a6-XO-NGm" secondAttribute="bottom" id="q2l-Tr-ihf"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bannerImageView" destination="et9-0d-9xx" id="rqY-dH-N5T"/>
@@ -1214,7 +1225,7 @@
         <image name="stat-icon" width="30" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lry-fN-o2V"/>
+        <segue reference="uE0-oK-SjD"/>
         <segue reference="NKQ-Bn-ggD"/>
         <segue reference="zWX-NV-sqm"/>
     </inferredMetricsTieBreakers>
